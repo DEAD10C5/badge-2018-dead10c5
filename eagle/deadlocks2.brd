@@ -24,25 +24,25 @@
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
-<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
-<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
-<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
-<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
-<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="yes" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="yes" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
-<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
@@ -13918,9 +13918,16 @@
 <rectangle x1="36.1375" y1="119.6125" x2="38.4125" y2="119.7875" layer="200"/>
 <rectangle x1="38.9375" y1="119.6125" x2="39.1125" y2="119.7875" layer="200"/>
 <rectangle x1="36.3125" y1="119.7875" x2="37.7125" y2="119.9625" layer="200"/>
-<text x="0" y="-0.875" size="0.35" layer="200" font="vector">/home/thedevilsvoice/workspace/dead10c5_2018/art/DE:AD:10:C5-2.bmp</text>
 <dimension x1="37.45" y1="119.875" x2="37.275" y2="0.875" x3="83.56394375" y3="60.30705625" textsize="3.81" layer="49" unit="inch" visible="yes"/>
 <dimension x1="0.2625" y1="40.6875" x2="76.825" y2="40.775" x3="38.45034375" y3="122.462340625" textsize="2.1844" layer="49" unit="inch" visible="yes"/>
+<wire x1="22.75" y1="76.3" x2="54.075" y2="76.125" width="0.1524" layer="20" curve="-47.406574"/>
+<wire x1="22.75" y1="76.475" x2="23.275" y2="93.45" width="0.1524" layer="20"/>
+<wire x1="53.9" y1="76.3" x2="53.2" y2="93.975" width="0.1524" layer="20"/>
+<wire x1="23.275" y1="93.45" x2="53.2" y2="93.975" width="0.1524" layer="20" curve="-180"/>
+<wire x1="11.55" y1="95.025" x2="65.1" y2="92.75" width="0.1524" layer="20" curve="-180.768921"/>
+<wire x1="11.55" y1="95.025" x2="11.025" y2="68.25" width="0.1524" layer="20"/>
+<wire x1="65.1" y1="92.925" x2="65.625" y2="67.725" width="0.1524" layer="20"/>
+<wire x1="65.625" y1="67.9" x2="11.025" y2="68.25" width="0.1524" layer="20" curve="-271.792094"/>
 </plain>
 <libraries>
 <library name="SparkFun-Capacitors" urn="urn:adsk.eagle:library:510">
