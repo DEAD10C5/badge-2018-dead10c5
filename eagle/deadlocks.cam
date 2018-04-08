@@ -6,7 +6,7 @@
     "description": {
         "EN": "EAGLE default 2 layer CAM job."
     },
-    "output_type": "directory",
+    "output_type": "zip",
     "outputs": [
         {
             "format_specifier": {
@@ -21,7 +21,7 @@
                         "PTH": true,
                         "VIA": true
                     },
-                    "filename_format": "drills.xln",
+                    "filename_format": "drills.txt",
                     "layers": {
                         "from": 1,
                         "to": 16
@@ -48,11 +48,12 @@
                         "layer_details": "mixed",
                         "layer_type": "top"
                     },
-                    "filename_format": "%PREFIX/copper_top.gbr",
+                    "filename_format": "%PREFIX/copper_top.gtl",
                     "layers": [
                         1,
+                        17,
                         18,
-                        17
+                        20
                     ],
                     "name": "Top Copper",
                     "polarity": "positive",
@@ -66,11 +67,12 @@
                         "layer_details": "mixed",
                         "layer_type": "bottom"
                     },
-                    "filename_format": "%PREFIX/copper_bottom.gbr",
+                    "filename_format": "%PREFIX/copper_bottom.gbl",
                     "layers": [
                         16,
                         17,
-                        18
+                        18,
+                        20
                     ],
                     "name": "Bottom Copper",
                     "polarity": "positive",
@@ -82,9 +84,10 @@
                         "file_function": "Profile",
                         "plating": "non-plated"
                     },
-                    "filename_format": "%PREFIX/profile.gbr",
+                    "filename_format": "%PREFIX/profile.gml",
                     "layers": [
-                        20
+                        20,
+                        46
                     ],
                     "milling": true,
                     "polarity": "positive",
@@ -97,9 +100,10 @@
                         "index": 1,
                         "layer_type": "top"
                     },
-                    "filename_format": "%PREFIX/soldermask_top.gbr",
+                    "filename_format": "%PREFIX/soldermask_top.gts",
                     "layers": [
-                        29
+                        29,
+                        20
                     ],
                     "name": "Soldermask Top",
                     "polarity": "negative",
@@ -112,9 +116,10 @@
                         "index": 1,
                         "layer_type": "bottom"
                     },
-                    "filename_format": "%PREFIX/soldermask_bottom.gbr",
+                    "filename_format": "%PREFIX/soldermask_bottom.gbs",
                     "layers": [
-                        30
+                        30,
+                        20
                     ],
                     "name": "Soldermask Bottom",
                     "polarity": "negative",
@@ -128,7 +133,8 @@
                     },
                     "filename_format": "%PREFIX/solderpaste_top.gbr",
                     "layers": [
-                        31
+                        31,
+                        20
                     ],
                     "milling": false,
                     "name": "Solderpaste Top",
@@ -141,9 +147,10 @@
                         "file_function": "Paste",
                         "layer_type": "bottom"
                     },
-                    "filename_format": "%PREFIX/solderpaste_bottom.gbr",
+                    "filename_format": "%PREFIX/solderpaste_bottom.gbp",
                     "layers": [
-                        32
+                        32,
+                        20
                     ],
                     "milling": false,
                     "name": "Solderpaste Bottom",
@@ -157,10 +164,11 @@
                         "index": 1,
                         "layer_type": "top"
                     },
-                    "filename_format": "%PREFIX/silkscreen_top.gbr",
+                    "filename_format": "%PREFIX/silkscreen_top.gto",
                     "layers": [
                         21,
-                        25
+                        25,
+                        20
                     ],
                     "milling": false,
                     "name": "Silkscreen Top",
@@ -174,10 +182,11 @@
                         "index": 1,
                         "layer_type": "bottom"
                     },
-                    "filename_format": "%PREFIX/silkscreen_bottom.gbr",
+                    "filename_format": "%PREFIX/silkscreen_bottom.gbo",
                     "layers": [
                         22,
-                        26
+                        26,
+                        20
                     ],
                     "milling": false,
                     "name": "Silkscreen Bottom",
@@ -188,7 +197,7 @@
             "version": "RS274X"
         }
     ],
-    "timestamp": "2018-04-08T11:18:37",
+    "timestamp": "2018-04-08T13:35:33",
     "type": "EAGLE CAM job",
     "units": "metric",
     "version": "8.6.1"

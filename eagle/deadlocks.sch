@@ -4431,6 +4431,7 @@ Standard 6 pin header for AVR programming</description>
 </variantdefs>
 <classes>
 <class number="0" name="default" width="0" drill="0">
+<clearance class="0" value="0.762"/>
 </class>
 </classes>
 <parts>
