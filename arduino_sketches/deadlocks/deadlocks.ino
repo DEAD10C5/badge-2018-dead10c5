@@ -62,15 +62,15 @@ void setup() {
 void sweepRight() {
   int ledCount = (sizeof(leds) / sizeof(int));
   for (int ledCounter = 0; ledCounter < ledCount;  ledCounter += 1) {
-    for (int fadeValue = 0 ; fadeValue <= 100; fadeValue += 10) {
+    for (int fadeValue = 0 ; fadeValue <= 100; fadeValue += 1) {
       analogWrite(leds[ledCounter], fadeValue);
-      delay(3);
+      delay(1);
     }
   }
   for (int ledCounter = 0; ledCounter < ledCount;  ledCounter += 1) {
-    for (int fadeValue = 100 ; fadeValue >= 0; fadeValue -= 10) {
+    for (int fadeValue = 100 ; fadeValue >= 0; fadeValue -= 1) {
       analogWrite(leds[ledCounter], fadeValue);
-      delay(3);
+      delay(1);
     }
   }  
 }
@@ -78,25 +78,38 @@ void sweepRight() {
 void sweepLeft() {
   int ledCount = (sizeof(leds) / sizeof(int));
   for (int ledCounter = (ledCount-1); ledCounter >= 0;  ledCounter -= 1) {
-    for (int fadeValue = 0 ; fadeValue <= 100; fadeValue += 10) {
+    for (int fadeValue = 0 ; fadeValue <= 100; fadeValue += 1) {
       analogWrite(leds[ledCounter], fadeValue);
-      delay(3);
+      delay(1);
     }
   }
-  for (int ledCounter = ledCount; ledCounter >= 0;  ledCounter -= 1) {
-    for (int fadeValue = 100 ; fadeValue >= 0; fadeValue -= 10) {
+  for (int ledCounter = (ledCount-1); ledCounter >= 0;  ledCounter -= 1) {
+    for (int fadeValue = 100 ; fadeValue >= 0; fadeValue -= 1) {
       analogWrite(leds[ledCounter], fadeValue);
-      delay(3);
+      delay(1);
     }
   }
 }
 
-void blinkLed(int led, int blinks) {
+void strobeLed(int led, int blinks) {
   for (int flashCounter = 1 ; flashCounter <= blinks; flashCounter += 1) {
     analogWrite(led, 255);
-    delay(100);
+    delay(25);
     analogWrite(led, 0);
-    delay(100);
+    delay(25);
+  }
+}
+
+void pulseLed(int led, int pulses) {
+  for (int pulseCounter = 1; pulseCounter <= pulses; pulseCounter += 1) {
+    for (int fadeValue = 0; fadeValue <= 100; fadeValue += 1) {
+      analogWrite(led, fadeValue);
+      delay(10);
+    }
+    for (int fadeValue = 100 ; fadeValue >= 0; fadeValue -= 1) {
+      analogWrite(led, fadeValue);
+      delay(10);
+    }
   }
 }
 
@@ -115,8 +128,31 @@ void loop() {
           Serial.print(potRead[potCounter]);
           Serial.print("\n");
     }
-    sweepRight();
-    sweepLeft();
-    blinkLed(led1, 5);
-  } 
+
+    for (int counter = 0; counter < 5; counter +=1) {
+      sweepRight();
+      sweepLeft();
+    }
+    strobeLed(led1, 10);
+    strobeLed(led2, 10);
+    strobeLed(led3, 10);
+    strobeLed(led4, 10);
+    strobeLed(led5, 10);
+    strobeLed(led6, 10);
+    
+    for (int counter = 0; counter < 5; counter += 1) {
+      sweepRight();
+    }
+    delay(100);
+    for (int counter = 0; counter < 5; counter += 1) {
+      sweepLeft();
+    }
+
+    pulseLed(led1, 1);
+    pulseLed(led2, 1);
+    pulseLed(led3, 1);
+    pulseLed(led4, 1);
+    pulseLed(led5, 1);
+    pulseLed(led6, 1);
+  }
 }
