@@ -18622,7 +18622,6 @@ DEFCON 26
 <rectangle x1="33.3375" y1="119.4375" x2="42.7875" y2="119.6125" layer="21"/>
 <rectangle x1="34.3875" y1="119.6125" x2="41.3875" y2="119.7875" layer="21"/>
 <rectangle x1="35.7875" y1="119.7875" x2="39.4625" y2="119.9625" layer="21"/>
-<text x="0" y="-0.875" size="0.35" layer="21" font="vector">/home/thedevilsvoice/workspace/dead10c5_2018/art/lock_screen.bmp</text>
 </plain>
 <libraries>
 <library name="SparkFun-Clocks" urn="urn:adsk.eagle:library:511">
