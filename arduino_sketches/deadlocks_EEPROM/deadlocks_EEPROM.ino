@@ -33,18 +33,22 @@ void setup() {
   if (EEPROM.read(0) != 0) {
     int randSeed(analogRead(A0)*10);
     randomSeed(randSeed);
-    for (int byteCounter = 1; byteCounter <= 24; byteCounter += 1) {
+    for (int byteCounter = 1; byteCounter <= 24; byteCounter += 2) {
       int element = random(1024);
-      EEPROM.write(byteCounter, element);     
+      EEPROM.write(byteCounter, highByte(element));
+      EEPROM.write(byteCounter + 1, lowByte(element));     
     }
     EEPROM.write(0, 1);
   }
 
-  for (int byteCounter = 1; byteCounter <= 24; byteCounter += 1) {
+  for (int byteCounter = 1; byteCounter <= 24; byteCounter += 2) {
     Serial.print("Byte ");
     Serial.print(byteCounter);
     Serial.print(": ");
-    Serial.println(EEPROM.read(byteCounter));
+    byte high = EEPROM.read(byteCounter);
+    byte low = EEPROM.read(byteCounter + 1);
+    int element = word(high, low);
+    Serial.println(element, DEC);
   }
   
   pinMode(button1, INPUT_PULLUP);
