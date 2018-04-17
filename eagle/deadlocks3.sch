@@ -7574,20 +7574,13 @@ Standard 6 pin header for AVR programming</description>
 <package name="BADGELIFE_ADD-ON">
 <description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
 <wire x1="-2.54" y1="-1.905" x2="-1.905" y2="-2.54" width="0.1524" layer="21"/>
-<wire x1="-0.635" y1="-2.54" x2="0" y2="-1.905" width="0.1524" layer="21"/>
-<wire x1="0" y1="-1.905" x2="0.635" y2="-2.54" width="0.1524" layer="21"/>
 <wire x1="1.905" y1="-2.54" x2="2.54" y2="-1.905" width="0.1524" layer="21"/>
 <wire x1="-2.54" y1="-1.905" x2="-2.54" y2="1.905" width="0.1524" layer="21"/>
 <wire x1="-2.54" y1="1.905" x2="-1.905" y2="2.54" width="0.1524" layer="21"/>
-<wire x1="-1.905" y1="2.54" x2="-0.635" y2="2.54" width="0.1524" layer="21"/>
-<wire x1="-0.635" y1="2.54" x2="0" y2="1.905" width="0.1524" layer="21"/>
-<wire x1="0" y1="1.905" x2="0.635" y2="2.54" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="2.54" x2="1.905" y2="2.54" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="2.54" x2="1.905" y2="2.54" width="0.1524" layer="21"/>
 <wire x1="1.905" y1="2.54" x2="2.54" y2="1.905" width="0.1524" layer="21"/>
-<wire x1="0" y1="1.905" x2="0" y2="-1.905" width="0.1524" layer="21"/>
 <wire x1="2.54" y1="1.905" x2="2.54" y2="-1.905" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="-2.54" x2="1.905" y2="-2.54" width="0.1524" layer="21"/>
-<wire x1="-1.905" y1="-2.54" x2="-0.635" y2="-2.54" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="-2.54" x2="1.905" y2="-2.54" width="0.1524" layer="21"/>
 <pad name="VCC" x="-1.27" y="-1.27" drill="1.016" diameter="1.6764" shape="octagon"/>
 <pad name="SDA" x="-1.27" y="1.27" drill="1.016" diameter="1.6764" shape="octagon"/>
 <pad name="GND" x="1.27" y="-1.27" drill="1.016" diameter="1.6764" shape="octagon"/>
@@ -7645,7 +7638,7 @@ Standard 6 pin header for AVR programming</description>
 <variantdefs>
 </variantdefs>
 <classes>
-<class number="0" name="default" width="0" drill="0">
+<class number="0" name="default" width="0.127" drill="0">
 <clearance class="0" value="0.254"/>
 </class>
 </classes>
@@ -7682,7 +7675,7 @@ Standard 6 pin header for AVR programming</description>
 <part name="GND8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="P+6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="C1" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="C-US" device="025-024X044" value="0.1uF"/>
-<part name="I2C" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_04" device="" package3d_urn="urn:adsk.eagle:package:38085/1"/>
+<part name="OLED" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_04" device="" package3d_urn="urn:adsk.eagle:package:38085/1" value="OLED"/>
 <part name="R2" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="10KOHM" device="-HORIZ-1/4W-1%" package3d_urn="urn:adsk.eagle:package:39658/1" value="3.6k"/>
 <part name="R3" library="SparkFun-Resistors" library_urn="urn:adsk.eagle:library:532" deviceset="10KOHM" device="-HORIZ-1/4W-1%" package3d_urn="urn:adsk.eagle:package:39658/1" value="10k"/>
 <part name="P+7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
@@ -7727,7 +7720,7 @@ Standard 6 pin header for AVR programming</description>
 <instance part="GND8" gate="1" x="134.62" y="5.08"/>
 <instance part="P+6" gate="VCC" x="134.62" y="17.78"/>
 <instance part="C1" gate="G$1" x="10.16" y="76.2" rot="R90"/>
-<instance part="I2C" gate="G$1" x="144.78" y="-40.64" rot="R90"/>
+<instance part="OLED" gate="G$1" x="144.78" y="-40.64" rot="R90"/>
 <instance part="R2" gate="G$1" x="119.38" y="-25.4" rot="R270"/>
 <instance part="R3" gate="G$1" x="127" y="-25.4" rot="R270"/>
 <instance part="P+7" gate="VCC" x="119.38" y="-15.24"/>
@@ -7804,18 +7797,18 @@ Standard 6 pin header for AVR programming</description>
 <pinref part="R3" gate="G$1" pin="1"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="127" y1="-20.32" x2="127" y2="-17.78" width="0.1524" layer="91"/>
-<pinref part="I2C" gate="G$1" pin="3"/>
-<wire x1="142.24" y1="-35.56" x2="142.24" y2="-20.32" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="-20.32" x2="127" y2="-20.32" width="0.1524" layer="91"/>
 <junction x="127" y="-20.32"/>
 <pinref part="BADGELIFE1" gate="G$1" pin="4"/>
 <wire x1="162.56" y1="-35.56" x2="162.56" y2="-20.32" width="0.1524" layer="91"/>
-<wire x1="162.56" y1="-20.32" x2="142.24" y2="-20.32" width="0.1524" layer="91"/>
-<junction x="142.24" y="-20.32"/>
+<wire x1="162.56" y1="-20.32" x2="139.7" y2="-20.32" width="0.1524" layer="91"/>
 <pinref part="BADGELIFE2" gate="G$1" pin="4"/>
+<wire x1="139.7" y1="-20.32" x2="127" y2="-20.32" width="0.1524" layer="91"/>
 <wire x1="182.88" y1="-35.56" x2="182.88" y2="-20.32" width="0.1524" layer="91"/>
 <wire x1="182.88" y1="-20.32" x2="162.56" y2="-20.32" width="0.1524" layer="91"/>
 <junction x="162.56" y="-20.32"/>
+<pinref part="OLED" gate="G$1" pin="4"/>
+<wire x1="139.7" y1="-35.56" x2="139.7" y2="-20.32" width="0.1524" layer="91"/>
+<junction x="139.7" y="-20.32"/>
 </segment>
 </net>
 <net name="VCC" class="0">
@@ -8128,22 +8121,22 @@ Standard 6 pin header for AVR programming</description>
 <wire x1="127" y1="-33.02" x2="119.38" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="-33.02" x2="119.38" y2="-30.48" width="0.1524" layer="91"/>
 <pinref part="BADGELIFE1" gate="G$1" pin="1"/>
-<wire x1="127" y1="-33.02" x2="139.7" y2="-33.02" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="-33.02" x2="170.18" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="127" y1="-33.02" x2="142.24" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="-33.02" x2="170.18" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="170.18" y1="-33.02" x2="170.18" y2="-35.56" width="0.1524" layer="91"/>
 <junction x="127" y="-33.02"/>
 <pinref part="BADGELIFE2" gate="G$1" pin="1"/>
 <wire x1="170.18" y1="-33.02" x2="190.5" y2="-33.02" width="0.1524" layer="91"/>
 <wire x1="190.5" y1="-33.02" x2="190.5" y2="-35.56" width="0.1524" layer="91"/>
 <junction x="170.18" y="-33.02"/>
-<pinref part="I2C" gate="G$1" pin="4"/>
-<wire x1="139.7" y1="-35.56" x2="139.7" y2="-33.02" width="0.1524" layer="91"/>
-<junction x="139.7" y="-33.02"/>
+<pinref part="OLED" gate="G$1" pin="3"/>
+<wire x1="142.24" y1="-35.56" x2="142.24" y2="-33.02" width="0.1524" layer="91"/>
+<junction x="142.24" y="-33.02"/>
 </segment>
 </net>
 <net name="N$26" class="0">
 <segment>
-<pinref part="I2C" gate="G$1" pin="1"/>
+<pinref part="OLED" gate="G$1" pin="1"/>
 <wire x1="147.32" y1="-35.56" x2="147.32" y2="-2.54" width="0.1524" layer="91"/>
 <wire x1="147.32" y1="-2.54" x2="121.92" y2="-2.54" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="-2.54" x2="121.92" y2="66.04" width="0.1524" layer="91"/>
@@ -8161,7 +8154,7 @@ Standard 6 pin header for AVR programming</description>
 </net>
 <net name="N$28" class="0">
 <segment>
-<pinref part="I2C" gate="G$1" pin="2"/>
+<pinref part="OLED" gate="G$1" pin="2"/>
 <wire x1="144.78" y1="-35.56" x2="144.78" y2="-5.08" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="-5.08" x2="119.38" y2="-5.08" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="-5.08" x2="119.38" y2="63.5" width="0.1524" layer="91"/>
@@ -8180,16 +8173,6 @@ Standard 6 pin header for AVR programming</description>
 </nets>
 </sheet>
 </sheets>
-<errors>
-<approved hash="113,1,61.4451,-21.59,D1,,,,,"/>
-<approved hash="113,1,69.0651,-21.59,D2,,,,,"/>
-<approved hash="113,1,76.6851,-21.59,D3,,,,,"/>
-<approved hash="113,1,84.3051,-21.59,D4,,,,,"/>
-<approved hash="113,1,91.9251,-21.59,D5,,,,,"/>
-<approved hash="113,1,99.5451,-21.59,D6,,,,,"/>
-<approved hash="113,1,142.24,32.2326,SW1,,,,,"/>
-<approved hash="113,1,141.563,12.8626,POWER,,,,,"/>
-</errors>
 </schematic>
 </drawing>
 <compatibility>

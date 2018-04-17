@@ -1,5 +1,8 @@
 #include "EEPROM.h"
+#include "ssd1306.h"
+#include "font6x8.h"
 
+//Rename the pins to something more descriptive
 int led1 = 3;
 int led2 = 5;
 int led3 = 6;
@@ -7,55 +10,60 @@ int led4 = 9;
 int led5 = 10;
 int led6 = 11;
 int leds[6] = {led1, led2, led3, led4, led5, led6};
-
 int button1 = 2;
-
-int pot1 = A2;
-int pot2 = A3;
-int pot3 = A4;
-int pot4 = A5;
+int pot1 = A3;
+int pot2 = A2;
+int pot3 = A1;
+int pot4 = A0;
 int pots[4] = {pot1, pot2, pot3, pot4};
 
 void setup() {
   Serial.begin(115200);
-  while (!Serial) {
+  while ( !Serial ) {
     ;
   }
-  for (int ledCounter = 0; ledCounter <= 5;  ledCounter += 1) {
+  //Set the LED pins to output mode
+  for ( int ledCounter = 0; ledCounter <= 5;  ledCounter += 1)  {
     pinMode(leds[ledCounter], OUTPUT);
   }
-  for (int potCounter = 0; potCounter <=3; potCounter += 1) {
-    pinMode(pots[potCounter], INPUT);
+  //Set the potentiometer pins to input mode
+  for ( int potCounter = 0; potCounter <=3; potCounter += 1 ) {
+    pinMode( pots[potCounter], INPUT );
   }
 
-  Serial.println(EEPROM.read(0));
+  if ( EEPROM.read(0) == 1 ) {
+    Serial.println( "This badge has been initialized." );
+  }
+  else {
+    Serial.println( "This badge has NOT been initialized." );
+    
+    //Set up the random number generator
+    int randSeed( analogRead(A0)*10 );
+    randomSeed( randSeed );
 
-  if (EEPROM.read(0) != 0) {
-    int randSeed(analogRead(A0)*10);
-    randomSeed(randSeed);
-    for (int byteCounter = 1; byteCounter <= 24; byteCounter += 2) {
-      int element = random(1024);
-      EEPROM.write(byteCounter, highByte(element));
-      EEPROM.write(byteCounter + 1, lowByte(element));     
+    //Create 24 random numbers and write them to the EEPROM
+    Serial.println( "Creating lock combinations." );
+    for ( int byteCounter = 1; byteCounter <= 24; byteCounter += 1 ) {
+      int element = random( 10 );
+      EEPROM.write( byteCounter, element );  
     }
-    EEPROM.write(0, 1);
+
+    //Write to EEPROM that none of the combintations have been matched
+    for ( int comboCounter = 25; comboCounter <= 30; comboCounter += 1 ) {
+      EEPROM.write( comboCounter, 0 );
+    }
+
+    //Setting the first byte of the EEPROM to value '1' to indicate that the badge has been initialized
+    EEPROM.write( 0, 1 );
+    
   }
 
-  for (int byteCounter = 1; byteCounter <= 24; byteCounter += 2) {
-    Serial.print("Byte ");
-    Serial.print(byteCounter);
-    Serial.print(": ");
-    byte high = EEPROM.read(byteCounter);
-    byte low = EEPROM.read(byteCounter + 1);
-    int element = word(high, low);
-    Serial.println(element, DEC);
-  }
-  
-  pinMode(button1, INPUT_PULLUP);
-  Serial.print("pots: ");
-  Serial.println(sizeof(pots) / sizeof(int));
-  Serial.print("leds: ");
-  Serial.println(sizeof(leds) / sizeof(int));
+  //Set up the input pin for the button
+  pinMode( button1, INPUT_PULLUP );
+
+  ssd1306_128x64_i2c_init();
+  ssd1306_fillScreen(0x00);
+  ssd1306_setFixedFont(ssd1306xled_font6x8);
   
 }
 
@@ -117,42 +125,27 @@ void loop() {
   if (digitalRead(button1) == LOW) {
     
     int potCount = (sizeof(pots) / sizeof(int));
-    int ledCount = (sizeof(leds) / sizeof(int));
-
     int potRead[potCount];
     
     for (int potCounter = 0; potCounter < potCount; potCounter +=1) {
-      potRead[potCounter] = analogRead(pots[potCounter]);
+      potRead[potCounter] = (analogRead(pots[potCounter])/112);
     }
     for (int potCounter = 0; potCounter < potCount; potCounter +=1) {
-          Serial.print(potRead[potCounter]);
-          Serial.print("\n");
+          Serial.println(potRead[potCounter]);
     }
 
-    for (int counter = 0; counter < 5; counter +=1) {
-      sweepRight();
-      sweepLeft();
-    }
-    strobeLed(led1, 10);
-    strobeLed(led2, 10);
-    strobeLed(led3, 10);
-    strobeLed(led4, 10);
-    strobeLed(led5, 10);
-    strobeLed(led6, 10);
-    
-    for (int counter = 0; counter < 5; counter += 1) {
-      sweepRight();
-    }
-    delay(100);
-    for (int counter = 0; counter < 5; counter += 1) {
-      sweepLeft();
-    }
+    sweepRight();
+  }
 
-    pulseLed(led1, 1);
-    pulseLed(led2, 1);
-    pulseLed(led3, 1);
-    pulseLed(led4, 1);
-    pulseLed(led5, 1);
-    pulseLed(led6, 1);
+  int potCount = (sizeof(pots) / sizeof(int));
+  for (int potCounter = 0; potCounter < potCount; potCounter +=1) {
+    char output[14];
+    String str;
+    str = "Combo ";
+    str = str + String(potCounter + 1);
+    str = str + ": ";
+    str = str + String(analogRead(pots[potCounter])/112);
+    str.toCharArray(output,14);
+    ssd1306_printFixed (0,  ((potCounter + 1) * 8), output, STYLE_NORMAL);
   }
 }
