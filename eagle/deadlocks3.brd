@@ -16,7 +16,7 @@
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="24" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
@@ -156,10 +156,10 @@
 <wire x1="11.55" y1="95.025" x2="11.025" y2="68.25" width="0.1524" layer="20"/>
 <wire x1="65.1" y1="92.925" x2="65.625" y2="67.725" width="0.1524" layer="20"/>
 <wire x1="65.625" y1="67.9" x2="11.025" y2="68.25" width="0.1524" layer="20" curve="-271.792094"/>
-<text x="30.6324" y="15.824" size="1.778" layer="22" rot="MR0">@TheDevilsVoice
+<text x="37.8074" y="16.699" size="1.778" layer="22" rot="MR0">@TheDevilsVoice
 @mzbat
 @p0lr_</text>
-<text x="55.31" y="15.7708" size="1.778" layer="22" rot="MR0">@DEAD10C5
+<text x="55.135" y="16.4708" size="1.778" layer="22" rot="MR0">@DEAD10C5
 DEFCON 26
 #Badgelife</text>
 <rectangle x1="35.9625" y1="1.6625" x2="39.2875" y2="1.8375" layer="21"/>
